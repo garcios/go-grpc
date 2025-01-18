@@ -25,7 +25,7 @@ protoc: clean
 	./proto/jobsearch/*.proto
 
 
-# This command does nor work at the moment, please use protoc instead.
+# This command does not work at the moment, please use protoc instead.
 .PHONY: generate
 generate: clean
 	go generate ./...
