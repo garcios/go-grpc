@@ -1,3 +1,3 @@
 package basic
 
-//go:generate protoc --go_opt=module=intro --go_out=../../ --go-grpc_out=. -I=. hello.proto user.proto user_group.proto
+//go:generate protoc --go_opt=module=github.com/oskiegarcia/go-grpc/intro --go_out=../../  -I =.  ./hello.proto ./user.proto ./user_group.proto ./application.proto
