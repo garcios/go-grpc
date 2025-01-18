@@ -1,16 +1,67 @@
-# Go gRPC
-This comprises key insights and crucial programs that have contributed to my understanding of the gRPC using the 
-Go language.
+# Introduction
+This is an introduction to protobuf.
 
-This document and codes will act as a comprehensive guide for programming with Go-GRPC.
+## Requirements
 
-# Sections
- - Introduction (https://github.com/garcios/go-grpc/intro/README.md)
-   >This is about an introduction about protobuf and contains some basic concepts.
+- Protobuf Compiler
+```shell
+brew install protobuf
+```
 
- - Uber Style Guide (https://github.com/garcios/go-grpc/uber)
-   > This contains style guide in coding Go and Protobuf/gRPC.
+- Protobuf Go Plugin
+```shell
+go install google.golang.org/protobuf/cmd/protoc-gen-go@latest
+```
 
+- Open API
+```shell
+go get github.com/google/gnostic
+go install github.com/google/gnostic/cmd/protoc-gen-openapi
+```
+
+- Make
+```shell
+brew install make
+```
+
+## Proto compiler command
+```shell
+cd src
+protoc --go_out=. ./proto/basic/*.proto
+```
+
+or using go generate command
+```shell
+cd <project root directory>
+go generate ./...
+```
+
+or using make command
+```shell
+make generate
+```
+
+## Update go modules to satisfy golang imports for the generated code
+```shell
+cd ..
+go mod tidy
+```
+
+or using make command
+```shell
+make tidy
+```
+
+## Run the code
+```shell
+cd src
+go run .
+```
+
+or using make command
+```shell
+make run
+```
 
 ## Using protojson
 When you're using Protobuf as your data structure, you might want to use protojson for the following reasons:
