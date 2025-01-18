@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-option go_package = "./protogen/basic";
+option go_package = "go-grpc/protogen/basic";
 
 message Hello{
   string name = 1;

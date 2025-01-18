@@ -20,6 +20,10 @@ go get github.com/google/gnostic
 go install github.com/google/gnostic/cmd/protoc-gen-openapi
 ```
 
+- Make
+```shell
+brew install make
+```
 
 ## Proto compiler command
 ```shell
@@ -33,10 +37,20 @@ cd <project root directory>
 go generate ./...
 ```
 
+or using make command
+```shell
+make generate
+```
+
 ## Update go modules to satisfy golang imports for the generated code
 ```shell
 cd ..
 go mod tidy
+```
+
+or using make command
+```shell
+make tidy
 ```
 
 ## Run the code
@@ -45,6 +59,10 @@ cd src
 go run .
 ```
 
+or using make command
+```shell
+make run
+```
 
 ## References
 - https://github.com/uber/prototool/blob/dev/style/README.md
