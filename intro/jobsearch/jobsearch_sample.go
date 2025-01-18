@@ -1,10 +1,10 @@
 package jobsearch
 
 import (
-	"encoding/json"
 	"github.com/oskiegarcia/go-grpc/intro/protogen/basic"
 	"github.com/oskiegarcia/go-grpc/intro/protogen/dummy"
 	"github.com/oskiegarcia/go-grpc/intro/protogen/jobsearch"
+	"google.golang.org/protobuf/encoding/protojson"
 	"log"
 )
 
@@ -18,7 +18,7 @@ func JobSearchSofware() {
 		},
 	}
 
-	jsonBytes, err := json.Marshal(js)
+	jsonBytes, err := protojson.Marshal(&js)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -38,7 +38,7 @@ func JobSearchCandidate() {
 		},
 	}
 
-	jsonBytes, err := json.Marshal(jc)
+	jsonBytes, err := protojson.Marshal(&jc)
 	if err != nil {
 		log.Fatal(err)
 	}
