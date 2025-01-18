@@ -1,0 +1,7 @@
+syntax = "proto3";
+
+option go_package = "github.com/oskiegarcia/go-grpc/intro/protogen/basic;basic";
+
+message Hello{
+  string name = 1;
+}

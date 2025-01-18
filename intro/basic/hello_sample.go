@@ -1,7 +1,7 @@
 package basic
 
 import (
-	"github.com/oskiegarcia/go-grpc/src/protogen/basic"
+	"github.com/oskiegarcia/go-grpc/intro/protogen/basic"
 	"log"
 )
 

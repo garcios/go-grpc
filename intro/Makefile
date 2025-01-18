@@ -1,5 +1,5 @@
 # Change this to your own Go module
-GO_MODULE := go-grpc
+GO_MODULE := github.com/oskiegarcia/go-grpc/intro
 
 
 .PHONY: tidy
@@ -12,15 +12,17 @@ clean:
 ifeq ($(OS), Windows_NT)
 	if exist "protogen" rd /s /q protogen	
 else
-	rm -fR ./src/protogen
+	rm -fR ./protogen
 endif
 
 
 .PHONY: protoc
 # (un)comment or add folder that contains proto as required
-protoc:
-	protoc --go_opt=module=${GO_MODULE} --go_out=./src \
-	./src/proto/basic/*.proto \
+protoc: clean
+	protoc --go_opt=module=${GO_MODULE} --go_out=. \
+	./proto/basic/*.proto \
+	./proto/dummy/*.proto \
+	./proto/jobsearch/*.proto
 
 
 .PHONY: generate
@@ -33,7 +35,7 @@ build: clean protoc tidy
 
 .PHONY: run
 run:
-	go run src/main.go
+	go run main.go
 
 
 .PHONY: execute

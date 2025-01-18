@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"github.com/oskiegarcia/go-grpc/src/basic"
+	"github.com/oskiegarcia/go-grpc/intro/basic"
 	"log"
 	"time"
 )
@@ -20,4 +20,10 @@ func main() {
 	//basic.BasicHello()
 
 	basic.BasicUser()
+	//basic.ProtoToJsonUser()
+	//basic.JsonToProtoUser()
+	//basic.UserGroupSample()
+
+	//jobsearch.JobSearchSofware()
+	//jobsearch.JobSearchCandidate()
 }

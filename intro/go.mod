@@ -1,4 +1,4 @@
-module github.com/oskiegarcia/go-grpc
+module github.com/oskiegarcia/go-grpc/intro
 
 go 1.22.2
 
