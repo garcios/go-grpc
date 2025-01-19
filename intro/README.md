@@ -243,7 +243,30 @@ flexibility allows developers to safely evolve their data structures in an inter
 risk that updates will disrupt system operation.
 
 
+## Protobuf Options
+### Generated Go package
+```protobuf
+go_package = "my_go_module/path;package-name"
+```
+package-name is optional, when not specified it will use the path.
+
+### Generated Java/Kotlin package
+```protobuf
+java_package = "com.myprotobuf.generated.proto"
+```
+
+### Generated Java class name (classname.java)
+```protobuf
+java_outer_classname = "MyOuterClassName"
+```
+
+### Java Multiple Files
+```protobuf
+java_multiple_files = true
+```
+When true, it will generate each message in separated Java class.
+
 ## References
 - https://github.com/uber/prototool/blob/dev/style/README.md
 - https://cloud.google.com/apis/design
-- https://github.com/uber-go/guide/blob/master/style.md
+- https://github.com/googleapis/googleapis/tree/master/google/type

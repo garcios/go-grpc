@@ -84,8 +84,8 @@ func BasicWriteUserContentV3() {
 		//	Title:         "10 Strongest People In The World Version 3",
 		HtmlContent: "<p>Just a dummy content for 10 Strongest People In The World Version 3</p>",
 		//	AuthorId:      100,
-		Category:    "NEWS",
-		SubCategory: "PEOPLE",
+		Category: "NEWS",
+		//SubCategory: "PEOPLE",
 	}
 
 	err := writeProtoToFile(&uc, "user_content_v3.msg")

@@ -21,7 +21,7 @@ func main() {
 
 	//basic.BasicHello()
 
-	//basic.BasicUser()
+	basic.BasicUser()
 	//basic.ProtoToJsonUser()
 	//basic.JsonToProtoUser()
 	//basic.UserGroupSample()
@@ -41,10 +41,11 @@ func main() {
 
 	// Schema evolution
 	//basic.BasicWriteUserContentV1()
-	basic.BasicReadUserContentV1()
+	//basic.BasicReadUserContentV1()
 	//basic.BasicWriteUserContentV2()
-	basic.BasicReadUserContentV2()
-	basic.BasicWriteUserContentV3()
-	basic.BasicReadUserContentV3()
+	//basic.BasicReadUserContentV2()
+	//basic.BasicWriteUserContentV3()
+	//basic.BasicReadUserContentV3()
+	//basic.BasicReadUserPayment()
 
 }

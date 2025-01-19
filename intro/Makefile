@@ -31,7 +31,7 @@ generate: clean
 	go generate ./...
 
 .PHONY: build
-build: clean protoc tidy
+build: protoc tidy
 
 
 .PHONY: run
