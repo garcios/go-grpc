@@ -7,6 +7,9 @@ go mod tidy
 ```
 
 ## Hexagonal Architecture
+
+![hexagonal.png](hexagonal.png)
+
 This module uses Hexagonal Architecture. Hexagonal Architecture, also known as Ports and Adapters pattern, is a software
 design pattern that proposes how to structure an application such that it remains separate from the outside world. 
 The central idea is that the application/core logic should not depend on databases, messaging systems, and frameworks.
