@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-option go_package = "github.com/oskiegarcia/go-grpc/intro/protogen/basic;basic";
+option go_package = "github.com/garcios/go-grpc/intro/protogen/basic;basic";
 
 message Hello{
   string name = 1;

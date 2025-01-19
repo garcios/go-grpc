@@ -2,7 +2,9 @@ package main
 
 import (
 	"fmt"
-	"github.com/oskiegarcia/go-grpc/intro/jobsearch"
+	"github.com/garcios/go-grpc/intro/basic"
+
+	//"github.com/garcios/go-grpc/intro/jobsearch"
 	"log"
 	"time"
 )
@@ -24,6 +26,9 @@ func main() {
 	//basic.JsonToProtoUser()
 	//basic.UserGroupSample()
 
-	jobsearch.JobSearchSofware()
-	jobsearch.JobSearchCandidate()
+	//jobsearch.JobSearchSofware()
+	//jobsearch.JobSearchCandidate()
+
+	//basic.BasicUnMarshallAnyKnown()
+	basic.BasicUnmarshallAnyNotKnowm()
 }

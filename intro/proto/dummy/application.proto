@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package the.dummy;
 
-option go_package = "github.com/oskiegarcia/go-grpc/intro/protogen/dummy;dummy";
+option go_package = "github.com/garcios/go-grpc/intro/protogen/dummy;dummy";
 
 /*
 Job

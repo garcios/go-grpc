@@ -1,6 +1,20 @@
 # Introduction
 This is an introduction to protobuf.
 
+# Creating the go module
+```shell
+mkdir intro
+cd intro
+go mod init github.com/garcios/go-grpc/intro
+```
+The above commands will create go.mod file in the intro directory with the following content:
+```go
+module github.com/garcios/go-grpc/intro
+
+go 1.22.2
+```
+
+
 ## Requirements
 
 - Protobuf Compiler

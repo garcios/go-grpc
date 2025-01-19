@@ -1,9 +1,9 @@
 package jobsearch
 
 import (
-	"github.com/oskiegarcia/go-grpc/intro/protogen/basic"
-	"github.com/oskiegarcia/go-grpc/intro/protogen/dummy"
-	"github.com/oskiegarcia/go-grpc/intro/protogen/jobsearch"
+	"github.com/garcios/go-grpc/intro/protogen/basic"
+	"github.com/garcios/go-grpc/intro/protogen/dummy"
+	"github.com/garcios/go-grpc/intro/protogen/jobsearch"
 	"google.golang.org/protobuf/encoding/protojson"
 	"log"
 )

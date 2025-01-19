@@ -1,5 +1,5 @@
 # Change this to your own Go module
-GO_MODULE := github.com/oskiegarcia/go-grpc/intro
+GO_MODULE := github.com/garcios/go-grpc/intro
 
 
 .PHONY: tidy

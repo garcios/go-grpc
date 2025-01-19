@@ -1,9 +1,10 @@
 package basic
 
 import (
-	"github.com/oskiegarcia/go-grpc/intro/protogen/basic"
+	"github.com/garcios/go-grpc/intro/protogen/basic"
 	"google.golang.org/protobuf/encoding/protojson"
 	"google.golang.org/protobuf/proto"
+	"google.golang.org/protobuf/reflect/protoreflect"
 	"google.golang.org/protobuf/types/known/anypb"
 	"log"
 	"math/rand"
@@ -112,4 +113,53 @@ func randomCommunicationChannel() anypb.Any {
 	}
 
 	return a
+}
+
+// BasicUnMarshallAnyKnown is a method to demonstrate unmarshalling when type is known.
+func BasicUnMarshallAnyKnown() {
+	socialMedia := basic.SocialMedia{
+		SocialMediaPlatform: "Facebook",
+		SocialMediaUsername: "byteme123",
+	}
+
+	var a anypb.Any
+	anypb.MarshalFrom(&a, &socialMedia, proto.MarshalOptions{})
+
+	// known type (Social Media)
+	sm := basic.SocialMedia{}
+
+	if err := a.UnmarshalTo(&sm); err != nil {
+		log.Fatalln("Got an error:", err)
+	}
+
+	jsonBytes, err := protojson.Marshal(&sm)
+	if err != nil {
+		log.Fatalf("Error marshaling json: %v", err)
+	}
+	log.Printf("JSON representation: %s\n", jsonBytes)
+}
+
+// BasicUnmarshallAnyNotKnowm is a method to demonstrate unmarshalling when type is NOT known.
+func BasicUnmarshallAnyNotKnowm() {
+	a := randomCommunicationChannel()
+
+	var unmarchalled protoreflect.ProtoMessage
+
+	unmarchalled, err := a.UnmarshalNew()
+	if err != nil {
+		log.Fatalln("Got an error:", err)
+	}
+
+	log.Println("Unmashall as", unmarchalled.ProtoReflect().Descriptor().Name())
+
+	jsonBytes, err := protojson.Marshal(unmarchalled)
+	if err != nil {
+		log.Fatalf("Error marshaling json: %v", err)
+	}
+
+	log.Printf("JSON representation: %s\n", jsonBytes)
+}
+
+func BasicUnmarshallAnyIs() {
+
 }
