@@ -1,6 +1,7 @@
 package basic
 
 import (
+	"fmt"
 	"github.com/garcios/go-grpc/intro/protogen/basic"
 	"google.golang.org/protobuf/encoding/protojson"
 	"google.golang.org/protobuf/proto"
@@ -8,12 +9,18 @@ import (
 	"google.golang.org/protobuf/types/known/anypb"
 	"log"
 	"math/rand"
+	"reflect"
 	"time"
 )
 
 func BasicUser() {
 
 	comm := randomCommunicationChannel()
+	sr := map[string]uint32{
+		"fly":      5,
+		"speed":    6,
+		"strength": 7,
+	}
 
 	u := basic.User{
 		Id:       100,
@@ -32,6 +39,7 @@ func BasicUser() {
 			},
 		},
 		CommunicationChannel: &comm,
+		SkillRating:          sr,
 	}
 
 	jsonBytes, err := protojson.Marshal(&u)
@@ -161,5 +169,69 @@ func BasicUnmarshallAnyNotKnowm() {
 }
 
 func BasicUnmarshallAnyIs() {
+	a := randomCommunicationChannel()
+	pm := basic.PapelMail{}
 
+	if a.MessageIs(&pm) {
+		if err := a.UnmarshalTo(&pm); err != nil {
+			log.Fatalln("Got an error:", err)
+		}
+
+		jsonBytes, err := protojson.Marshal(&pm)
+		if err != nil {
+			log.Fatalf("Error marshaling json: %v", err)
+		}
+
+		log.Printf("Paper Mail JSON: %s", jsonBytes)
+	} else {
+		log.Println("Not PaperMain, but: ", a.TypeUrl)
+	}
+
+}
+
+func BasicOneof() {
+	socialMedia := basic.SocialMedia{
+		SocialMediaPlatform: "Facebook",
+		SocialMediaUsername: "aquaman",
+	}
+
+	instantMessaging := basic.InstantMessaging{
+		InstantMessagingProduct:  "WhatsApp",
+		InstantMessagingUsername: "aquaman",
+	}
+
+	u := basic.User{
+		Id:       99,
+		Username: "aquaman",
+		IsActive: true,
+	}
+
+	rand.Seed(time.Now().UnixNano())
+
+	// variable u.ElectronicCommunicationChannel can be assigned any of User_InstantMessaging or User_SocialMedia.
+	if rand.Intn(10) < 5 {
+		u.ElectronicCommunicationChannel = &basic.User_InstantMessaging{
+			InstantMessaging: &instantMessaging,
+		}
+	} else {
+		u.ElectronicCommunicationChannel = &basic.User_SocialMedia{
+			SocialMedia: &socialMedia,
+		}
+	}
+
+	jsonBytes, err := protojson.Marshal(&u)
+	if err != nil {
+		log.Fatalf("Error marshaling user to JSON: %v", err)
+	}
+	log.Printf("User JSON: %s", jsonBytes)
+
+	// checking what type is stored in u.ElectronicCommunicationChannel
+	switch v := u.ElectronicCommunicationChannel.(type) {
+	case *basic.User_InstantMessaging:
+		fmt.Println("InstantMessging: ", v.InstantMessaging)
+	case *basic.User_SocialMedia:
+		fmt.Println("SocialMedia: ", v.SocialMedia)
+	default:
+		fmt.Println("Unkown ElectronicCommunicationChannel: ", reflect.TypeOf(v))
+	}
 }

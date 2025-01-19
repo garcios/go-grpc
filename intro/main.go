@@ -29,6 +29,13 @@ func main() {
 	//jobsearch.JobSearchSofware()
 	//jobsearch.JobSearchCandidate()
 
+	// Any
 	//basic.BasicUnMarshallAnyKnown()
-	basic.BasicUnmarshallAnyNotKnowm()
+	//basic.BasicUnmarshallAnyNotKnowm()
+	//basic.BasicUnmarshallAnyIs()
+	//basic.BasicOneof()
+
+	// Read/Write
+	//basic.TestReadWriteProto()
+	basic.TestReadWriteProtoJSON()
 }
