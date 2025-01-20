@@ -15,7 +15,7 @@ func main() {
 	var opts []grpc.DialOption
 	opts = append(opts, grpc.WithTransportCredentials(insecure.NewCredentials()))
 
-	conn, err := grpc.Dial("localhost:9090", opts...)
+	conn, err := grpc.NewClient("localhost:9090", opts...)
 
 	if err != nil {
 		log.Fatalln("Can not connect to gRPC server :", err)

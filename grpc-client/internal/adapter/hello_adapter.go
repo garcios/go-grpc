@@ -25,11 +25,11 @@ func (a *HelloAdapter) SayHello(ctx context.Context, name string) (*hello.HelloR
 		Name: name,
 	}
 
-	greet, err := a.helloClient.SayHello(ctx, helloRequest)
+	resp, err := a.helloClient.SayHello(ctx, helloRequest)
 
 	if err != nil {
 		log.Fatalln("Error on SayHello :", err)
 	}
 
-	return greet, nil
+	return resp, nil
 }
